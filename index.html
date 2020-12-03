@@ -33,23 +33,23 @@
     <script>
         //------------------------------------------ SETTING SCENARIO ------------------------------------------\/
         // SCENARIO CRIATION AND SETTING BACKGROUND COLOR
-        var scene = new THREE.Scene();
+        const scene = new THREE.Scene();
         scene.background = new THREE.Color(0x2B353D);
 
         // CAMERA CRIATION
-        var camera = new THREE.PerspectiveCamera(75, (window.innerWidth / window.innerHeight), 1, 1000);
+        const camera = new THREE.PerspectiveCamera(75, (window.innerWidth / window.innerHeight), 1, 1000);
 
         // CREATING THE RENDERER AND APPENDING TO THE HTML
-        var renderer = new THREE.WebGLRenderer();
+        const renderer = new THREE.WebGLRenderer();
         renderer.setSize(window.innerWidth, window.innerHeight);
         document.body.appendChild(renderer.domElement);
 
         // MOUSE MOVIMENTATION
-        var controls = new THREE.OrbitControls(camera, renderer.domElement);
+        const controls = new THREE.OrbitControls(camera, renderer.domElement);
 
-        //------------------------------------------ DRAWING ------------------------------------------\/
+        //------------------------------------------ GROUP CREATION ------------------------------------------\/
         // GROUPS CREATION
-        var group = new THREE.Mesh();
+        const group = new THREE.Mesh();
         var floorGroup = new THREE.Mesh();
         var treeGroup = new THREE.Mesh();
         var giftGroup = new THREE.Mesh();
@@ -57,11 +57,11 @@
         var iglooGroup = new THREE.Mesh();
         var snowGroup = new THREE.Mesh();
         const wireframeMaterial = new THREE.MeshBasicMaterial({ color: 0x000000, wireframe: true });
-        const wireframeMaterialPresent = new THREE.MeshBasicMaterial({ color: 0x000000, wireframe: true });
 
+        //------------------------------------------ DRAWING ------------------------------------------\/
         // FLOOR INITIALIZE
         function floor() {
-            var floorGeometry = new THREE.PlaneBufferGeometry(1000, 1000);
+            const floorGeometry = new THREE.PlaneBufferGeometry(1000, 1000);
             const floorTexture = new THREE.MeshBasicMaterial({ color: 0xCBD6DE, side: THREE.DoubleSide });
             floorGroup = new THREE.Mesh(floorGeometry, floorTexture);
 
@@ -71,35 +71,35 @@
 
         // TREE INITIALIZE
         function tree(posX, posZ) {
-            var treeLeafGeometry1 = new THREE.CylinderGeometry(0, 7.5, 10, 20, 20, true);
-            var treeLeafGeometry2 = new THREE.CylinderGeometry(0, 10, 15, 20, 20, true);
-            var treeLeafGeometry3 = new THREE.CylinderGeometry(0, 12.5, 20, 20, 20, true);
-            var treeTrunkGeometry = new THREE.CylinderGeometry(3, 3, 20, 20, 20, false);
+            const treeLeafGeometry1 = new THREE.CylinderGeometry(0, 7.5, 10, 20, 20, true);
+            const treeLeafGeometry2 = new THREE.CylinderGeometry(0, 10, 15, 20, 20, true);
+            const treeLeafGeometry3 = new THREE.CylinderGeometry(0, 12.5, 20, 20, 20, true);
+            const treeTrunkGeometry = new THREE.CylinderGeometry(3, 3, 20, 20, 20, false);
             const leafTexture = new THREE.MeshBasicMaterial({ color: 0x698570 });
             const trunkTexture = new THREE.MeshBasicMaterial({ color: 0x543C27 });
-            var posXTree1 = posX;
-            var posXTree2 = -15;
+            const posXTree1 = posX;
+            const posXTree2 = -15;
 
-            var treeGroup01 = new THREE.Mesh(treeLeafGeometry1, leafTexture);
+            const treeGroup01 = new THREE.Mesh(treeLeafGeometry1, leafTexture);
             const wireframeLeaf01 = new THREE.Mesh(treeLeafGeometry1, wireframeMaterial);
             treeGroup01.material.side = THREE.DoubleSide; // back faces
             treeGroup01.add(wireframeLeaf01);
             treeGroup01.position.x = posXTree1;
             treeGroup01.position.y = 25;
 
-            var treeGroup02 = new THREE.Mesh(treeLeafGeometry2, leafTexture);
+            const treeGroup02 = new THREE.Mesh(treeLeafGeometry2, leafTexture);
             const wireframeLeaf02 = new THREE.Mesh(treeLeafGeometry2, wireframeMaterial);
             treeGroup02.add(wireframeLeaf02);
             treeGroup02.position.x = posXTree1;
             treeGroup02.position.y = 20;
 
-            var treeGroup03 = new THREE.Mesh(treeLeafGeometry3, leafTexture);
+            const treeGroup03 = new THREE.Mesh(treeLeafGeometry3, leafTexture);
             const wireframeLeaf03 = new THREE.Mesh(treeLeafGeometry3, wireframeMaterial);
             treeGroup03.add(wireframeLeaf03);
             treeGroup03.position.x = posXTree1;
             treeGroup03.position.y = 15;
 
-            var treeGroup04 = new THREE.Mesh(treeTrunkGeometry, trunkTexture);
+            const treeGroup04 = new THREE.Mesh(treeTrunkGeometry, trunkTexture);
             const wireframeTrunk = new THREE.Mesh(treeTrunkGeometry, wireframeMaterial);
             treeGroup04.add(wireframeTrunk);
             treeGroup04.position.x = posXTree1;
@@ -111,29 +111,29 @@
 
         // GIFT BOXEX
         function giftBox() {
-            var giftBoxGeometry01 = new THREE.BoxGeometry(4, 5, 4);
+            const giftBoxGeometry01 = new THREE.BoxGeometry(4, 5, 4);
             const giftBoxTexture01 = new THREE.MeshBasicMaterial({ color: 0xff0000 });
-            var giftBoxGeometry02 = new THREE.BoxGeometry(8, 4, 4);
+            const giftBoxGeometry02 = new THREE.BoxGeometry(8, 4, 4);
             const giftBoxTexture02 = new THREE.MeshBasicMaterial({ color: 0x0000ff });
-            var giftBoxGeometry03 = new THREE.BoxGeometry(4, 8, 3);
+            const giftBoxGeometry03 = new THREE.BoxGeometry(4, 8, 3);
             const giftBoxTexture03 = new THREE.MeshBasicMaterial({ color: 0x00ffff });
 
-            var giftGroup01 = new THREE.Mesh(giftBoxGeometry01, giftBoxTexture01);
-            const wireframeGiftBox01 = new THREE.Mesh(giftBoxGeometry01, wireframeMaterialPresent);
+            const giftGroup01 = new THREE.Mesh(giftBoxGeometry01, giftBoxTexture01);
+            const wireframeGiftBox01 = new THREE.Mesh(giftBoxGeometry01, wireframeMaterial);
             giftGroup01.add(wireframeGiftBox01);
             giftGroup01.position.x = 3;
             giftGroup01.position.y = 2.5;
             giftGroup01.position.z = -15;
 
-            var giftGroup02 = new THREE.Mesh(giftBoxGeometry02, giftBoxTexture02);
-            const wireframeGiftBox02 = new THREE.Mesh(giftBoxGeometry02, wireframeMaterialPresent);
+            const giftGroup02 = new THREE.Mesh(giftBoxGeometry02, giftBoxTexture02);
+            const wireframeGiftBox02 = new THREE.Mesh(giftBoxGeometry02, wireframeMaterial);
             giftGroup02.add(wireframeGiftBox02);
             giftGroup02.position.x = 10;
             giftGroup02.position.y = 2;
             giftGroup02.position.z = -8;
 
-            var giftGroup03 = new THREE.Mesh(giftBoxGeometry03, giftBoxTexture03);
-            const wireframeGiftBox03 = new THREE.Mesh(giftBoxGeometry03, wireframeMaterialPresent);
+            const giftGroup03 = new THREE.Mesh(giftBoxGeometry03, giftBoxTexture03);
+            const wireframeGiftBox03 = new THREE.Mesh(giftBoxGeometry03, wireframeMaterial);
             giftGroup03.add(wireframeGiftBox03);
             giftGroup03.position.x = -3;
             giftGroup03.position.y = 4;
@@ -144,9 +144,9 @@
 
         // "MERRY CHRISTMAS" 3D
         function xmasMessage() {
-            var loader = new THREE.FontLoader();
+            const loader = new THREE.FontLoader();
             loader.load('https://threejs.org/examples/fonts/helvetiker_regular.typeface.json', function (font) {
-                var geometry = new THREE.TextGeometry('MERRY CHRISTMAS!!', {
+                const geometry = new THREE.TextGeometry('MERRY CHRISTMAS!!', {
                     font: font,
                     size: 25,
                     height: 1,
@@ -157,8 +157,8 @@
                     bevelSegments: 3
                 });
                 geometry.center();
-                var material = new THREE.MeshNormalMaterial();
-                var mesh = new THREE.Mesh(geometry, material);
+                const material = new THREE.MeshNormalMaterial();
+                const mesh = new THREE.Mesh(geometry, material);
                 mesh.position.z = -500;
                 mesh.position.y = 150;
                 scene.add(mesh);
@@ -168,9 +168,9 @@
 
         // NAME 3D
         function studentName() {
-            var loader = new THREE.FontLoader();
+            const loader = new THREE.FontLoader();
             loader.load('https://threejs.org/examples/fonts/helvetiker_regular.typeface.json', function (font) {
-                var geometry = new THREE.TextGeometry("Bruno Hideki Uemura - 170002080 (GECO8AN)", {
+                const geometry = new THREE.TextGeometry("Bruno Hideki Uemura - 170002080 (GECO8AN)", {
                     font: font,
                     size: 14,
                     height: 0.5,
@@ -181,8 +181,8 @@
                     bevelSegments: 3
                 });
                 geometry.center();
-                var material = new THREE.MeshNormalMaterial();
-                var mesh = new THREE.Mesh(geometry, material);
+                const material = new THREE.MeshNormalMaterial();
+                const mesh = new THREE.Mesh(geometry, material);
                 mesh.position.z = -500;
                 mesh.position.y = 120;
                 scene.add(mesh);
@@ -192,29 +192,29 @@
 
         // SNOWMAN
         function snowMan() {
-            var snowManGeometry01 = new THREE.SphereGeometry(5, 20);
-            var snowManGeometry02 = new THREE.SphereGeometry(3.5, 20);
+            const snowManGeometry01 = new THREE.SphereGeometry(5, 20);
+            const snowManGeometry02 = new THREE.SphereGeometry(3.5, 20);
             const snowManTexture = new THREE.MeshBasicMaterial({ color: 0xF4FEFF });
-            var snowManGeometry03 = new THREE.SphereGeometry(0.5, 20);
+            const snowManGeometry03 = new THREE.SphereGeometry(0.5, 20);
             const snowManEyeTexture = new THREE.MeshBasicMaterial({ color: 0x000000 });
-            var snowManNoseGeometry = new THREE.CylinderGeometry(0.8, 0.1, 3, 32);
+            const snowManNoseGeometry = new THREE.CylinderGeometry(0.8, 0.1, 3, 32);
             const noseTexture = new THREE.MeshBasicMaterial({ color: 0xFF8B00 });
 
-            var snowManGroup01 = new THREE.Mesh(snowManGeometry01, snowManTexture);
+            const snowManGroup01 = new THREE.Mesh(snowManGeometry01, snowManTexture);
             const wireframeSnowMan01 = new THREE.Mesh(snowManGeometry01, wireframeMaterial);
             snowManGroup01.add(wireframeSnowMan01);
             snowManGroup01.position.x = 23;
             snowManGroup01.position.y = 4;
             snowManGroup01.position.z = 3;
 
-            var snowManGroup02 = new THREE.Mesh(snowManGeometry02, snowManTexture);
+            const snowManGroup02 = new THREE.Mesh(snowManGeometry02, snowManTexture);
             const wireframeSnowMan02 = new THREE.Mesh(snowManGeometry02, wireframeMaterial);
             snowManGroup02.add(wireframeSnowMan02);
             snowManGroup02.position.x = 23;
             snowManGroup02.position.y = 11;
             snowManGroup02.position.z = 3;
 
-            var snowManGroup03 = new THREE.Mesh(snowManNoseGeometry, noseTexture);
+            const snowManGroup03 = new THREE.Mesh(snowManNoseGeometry, noseTexture);
             const wireframeSnowMan03 = new THREE.Mesh(snowManNoseGeometry, wireframeMaterial);
             snowManGroup03.add(wireframeSnowMan03);
             snowManGroup03.rotation.x = 300;
@@ -222,14 +222,14 @@
             snowManGroup03.position.y = 11;
             snowManGroup03.position.z = 7.5;
 
-            var snowManGroup04 = new THREE.Mesh(snowManGeometry03, snowManEyeTexture);
+            const snowManGroup04 = new THREE.Mesh(snowManGeometry03, snowManEyeTexture);
             const wireframeSnowMan04 = new THREE.Mesh(snowManGeometry03, wireframeMaterial);
             snowManGroup04.add(wireframeSnowMan04);
             snowManGroup04.position.x = 24.5;
             snowManGroup04.position.y = 12;
             snowManGroup04.position.z = 6;
 
-            var snowManGroup05 = new THREE.Mesh(snowManGeometry03, snowManEyeTexture);
+            const snowManGroup05 = new THREE.Mesh(snowManGeometry03, snowManEyeTexture);
             const wireframeSnowMan05 = new THREE.Mesh(snowManGeometry03, wireframeMaterial);
             snowManGroup05.add(wireframeSnowMan05);
             snowManGroup05.position.x = 21.5;
@@ -242,20 +242,20 @@
 
         // IGLOO
         function igloo() {
-            var iglooGeometry01 = new THREE.SphereGeometry(30, 20);
-            var iglooGeometry02 = new THREE.CylinderGeometry(13, 15, 15, 15, 20);
-            var iglooGeometry03 = new THREE.CylinderGeometry(9, 12, 15, 15);
+            const iglooGeometry01 = new THREE.SphereGeometry(30, 20);
+            const iglooGeometry02 = new THREE.CylinderGeometry(13, 15, 15, 15, 20);
+            const iglooGeometry03 = new THREE.CylinderGeometry(9, 12, 15, 15);
             const iglooTexture01 = new THREE.MeshBasicMaterial({ color: 0xF4FEFF });
             const iglooTexture02 = new THREE.MeshBasicMaterial({ color: 0xB2894C });
 
-            var iglooGroup01 = new THREE.Mesh(iglooGeometry01, iglooTexture01);
+            const iglooGroup01 = new THREE.Mesh(iglooGeometry01, iglooTexture01);
             const wireframeIgloo01 = new THREE.Mesh(iglooGeometry01, wireframeMaterial);
             iglooGroup01.add(wireframeIgloo01);
             iglooGroup01.position.x = -15;
             iglooGroup01.position.y = 4;
             iglooGroup01.position.z = -100;
 
-            var iglooGroup02 = new THREE.Mesh(iglooGeometry02, iglooTexture01);
+            const iglooGroup02 = new THREE.Mesh(iglooGeometry02, iglooTexture01);
             const wireframeIgloo02 = new THREE.Mesh(iglooGeometry02, wireframeMaterial);
             iglooGroup02.add(wireframeIgloo02);
             iglooGroup02.rotation.x = 300;
@@ -264,7 +264,7 @@
             iglooGroup02.position.y = 2;
             iglooGroup02.position.z = -80;
 
-            var iglooGroup03 = new THREE.Mesh(iglooGeometry03, iglooTexture02);
+            const iglooGroup03 = new THREE.Mesh(iglooGeometry03, iglooTexture02);
             const wireframeIgloo03 = new THREE.Mesh(iglooGeometry03, wireframeMaterial);
             iglooGroup03.add(wireframeIgloo03);
             iglooGroup03.rotation.x = 300;
@@ -285,7 +285,7 @@
             let [snowGroup1, snowGroup2, snowGroup3, snowGroup4, snowGroup5,
                 snowGroup6, snowGroup7, snowGroup8, snowGroup9, snowGroup10] = Array(10).fill(new THREE.Mesh());
 
-            let snowGeometry = new THREE.SphereGeometry(0.5, 10, 10);
+            const snowGeometry = new THREE.SphereGeometry(0.5, 10, 10);
             const sphereTexture = new THREE.MeshBasicMaterial({ color: 0xffffff });
 
             if (snow_1_working == false) {
@@ -367,26 +367,24 @@
     </script>
 
     <script>
-        var myVar = setInterval(myTimer, 50);
+        const myVar = setInterval(myTimer, 50);
 
         floor();
-        
         for(let i = 1; i <= 3; i++){
             tree(30 * i , -15);
             tree(-30 * i, -15);
         }
-
         giftBox();
         xmasMessage();
         studentName();
         snowMan();
         igloo();
 
-        var count = 0;
-        var posX = 25;
+        let count = 0;
+        let posX = 25;
 
         function myTimer() {
-            count = count + 1;
+            count += 1;
             snow();
 
             if (posX > 0) { posX -= 1; } 
@@ -404,7 +402,7 @@
         camera.position.z = 60;
         camera.position.y = 20;
 
-        let animate = function () {
+        const animate = function () {
             requestAnimationFrame(animate);
             renderer.render(scene, camera);
         };
