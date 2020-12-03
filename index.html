@@ -389,17 +389,11 @@
             count = count + 1;
             snow();
 
-            if (posX > 0) {
-                posX -= 1;
-            } else {
-                posX = 25;
-            }
+            if (posX > 0) { posX -= 1; } 
+            else { posX = 25; }
 
-            if (count > 30) {
-                count = 0
-            }
-            console.log(posX);
-            console.log(contador);
+            if (count > 30) { count = 0; }
+            
         }
 
         // MERGING ALL PIECES 
