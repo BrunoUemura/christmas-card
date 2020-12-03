@@ -279,81 +279,65 @@
 
         // SNOW
         function snow() {
-            let [snow_1_working, snow_2_working, snow_3_working, snow_4_working, snow_5_working,
-                snow_6_working, snow_7_working, snow_8_working, snow_9_working, snow_10_working] = Array(10).fill(false);
-
-            let [snowGroup1, snowGroup2, snowGroup3, snowGroup4, snowGroup5,
-                snowGroup6, snowGroup7, snowGroup8, snowGroup9, snowGroup10] = Array(10).fill(new THREE.Mesh());
-
             const snowGeometry = new THREE.SphereGeometry(0.5, 10, 10);
             const sphereTexture = new THREE.MeshBasicMaterial({ color: 0xffffff });
 
-            if (snow_1_working == false) {
-                snow_1_working = true;
-                snowGroup1 = new THREE.Mesh(snowGeometry, sphereTexture);
+            if (true) {
+                const snowGroup1 = new THREE.Mesh(snowGeometry, sphereTexture);
                 snowGroup1.material.side = THREE.DoubleSide;
                 snowGroup1.position.x = -15;
                 snowGroup1.position.y = 10;
                 snowGroup1.position.z = 10;
 
-                snow_2_working = true;
-                snowGroup2 = new THREE.Mesh(snowGeometry, sphereTexture);
+                const snowGroup2 = new THREE.Mesh(snowGeometry, sphereTexture);
                 snowGroup2.material.side = THREE.DoubleSide;
                 snowGroup2.position.x = -8;
                 snowGroup2.position.y = 6;
                 snowGroup2.position.z = 3;
 
-                snow_3_working = true;
-                snowGroup3 = new THREE.Mesh(snowGeometry, sphereTexture);
+                const snowGroup3 = new THREE.Mesh(snowGeometry, sphereTexture);
                 snowGroup3.material.side = THREE.DoubleSide;
                 snowGroup3.position.x = 13;
                 snowGroup3.position.y = 8;
                 snowGroup3.position.z = -6;
 
-                snow_4_working = true;
-                snowGroup4 = new THREE.Mesh(snowGeometry, sphereTexture);
+                const snowGroup4 = new THREE.Mesh(snowGeometry, sphereTexture);
                 snowGroup4.material.side = THREE.DoubleSide;
                 snowGroup4.position.x = 16;
                 snowGroup4.position.y = 8;
                 snowGroup4.position.z = -12;
 
-                snow_5_working = true;
-                snowGroup5 = new THREE.Mesh(snowGeometry, sphereTexture);
+                const snowGroup5 = new THREE.Mesh(snowGeometry, sphereTexture);
                 snowGroup5.material.side = THREE.DoubleSide;
                 snowGroup5.position.x = -12;
                 snowGroup5.position.y = 8;
                 snowGroup5.position.z = -8;
 
-                snow_6_working = true;
-                snowGroup6 = new THREE.Mesh(snowGeometry, sphereTexture);
+                const snowGroup6 = new THREE.Mesh(snowGeometry, sphereTexture);
                 snowGroup6.material.side = THREE.DoubleSide;
                 snowGroup6.position.x = -6;
                 snowGroup6.position.y = 20;
                 snowGroup6.position.z = -7;
 
-                snow_7_working = true;
-                snowGroup7 = new THREE.Mesh(snowGeometry, sphereTexture);
+                const snowGroup7 = new THREE.Mesh(snowGeometry, sphereTexture);
                 snowGroup7.material.side = THREE.DoubleSide;
                 snowGroup7.position.x = 16;
                 snowGroup7.position.y = 23;
                 snowGroup7.position.z = -16;
 
-                snow_8_working = true;
-                snowGroup8 = new THREE.Mesh(snowGeometry, sphereTexture);
+                const snowGroup8 = new THREE.Mesh(snowGeometry, sphereTexture);
                 snowGroup8.material.side = THREE.DoubleSide;
                 snowGroup8.position.x = 0;
                 snowGroup8.position.y = 5;
                 snowGroup8.position.z = -9;
 
-                snow_9_working = true;
-                snowGroup9 = new THREE.Mesh(snowGeometry, sphereTexture);
+                const snowGroup9 = new THREE.Mesh(snowGeometry, sphereTexture);
                 snowGroup9.material.side = THREE.DoubleSide;
                 snowGroup9.position.x = 12;
                 snowGroup9.position.y = 30;
                 snowGroup9.position.z = 8;
 
-                snow_10_working = true;
-                snowGroup10 = new THREE.Mesh(snowGeometry, sphereTexture);
+                const snowGroup10 = new THREE.Mesh(snowGeometry, sphereTexture);
                 snowGroup10.material.side = THREE.DoubleSide;
                 snowGroup10.position.x = 9;
                 snowGroup10.position.y = 27;
