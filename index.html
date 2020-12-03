@@ -31,7 +31,10 @@
     <script src="https://threejs.org/examples/js/controls/OrbitControls.js"></script>
 
     <script>
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////
         //------------------------------------------ SETTING SCENARIO ------------------------------------------\/
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////
+
         // SCENARIO CRIATION AND SETTING BACKGROUND COLOR
         const scene = new THREE.Scene();
         scene.background = new THREE.Color(0x2B353D);
@@ -47,7 +50,10 @@
         // MOUSE MOVIMENTATION
         const controls = new THREE.OrbitControls(camera, renderer.domElement);
 
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////
         //------------------------------------------ GROUP CREATION ------------------------------------------\/
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////
+
         // GROUPS CREATION
         const group = new THREE.Mesh();
         var floorGroup = new THREE.Mesh();
@@ -57,8 +63,11 @@
         var iglooGroup = new THREE.Mesh();
         var snowGroup = new THREE.Mesh();
         const wireframeMaterial = new THREE.MeshBasicMaterial({ color: 0x000000, wireframe: true });
-
+        
+        /////////////////////////////////////////////////////////////////////////////////////////////////
         //------------------------------------------ DRAWING ------------------------------------------\/
+        /////////////////////////////////////////////////////////////////////////////////////////////////
+
         // FLOOR INITIALIZE
         function floor() {
             const floorGeometry = new THREE.PlaneBufferGeometry(1000, 1000);
