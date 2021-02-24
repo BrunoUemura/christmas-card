@@ -10,4 +10,5 @@ You can just donwload the .zip folder or clone the repository to your local mach
 
 ## What does it look like?
 
+It is a page rendered, and you can move the camera around.
 ![](images/Screenshot_1.png)
